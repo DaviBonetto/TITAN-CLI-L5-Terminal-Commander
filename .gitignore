@@ -1,0 +1,45 @@
+# Build artifacts
+/target/
+debug/
+release/
+
+# Cargo lock (keep for binaries)
+# Cargo.lock
+
+# IDE and editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env*.local
+
+# Logs
+*.log
+logs/
+
+# Rust specific
+**/*.rs.bk
+*.pdb
+
+# Test coverage
+tarpaulin-report.html
+coverage/
+*.profdata
+*.profraw
+
+# Documentation build
+/doc/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
