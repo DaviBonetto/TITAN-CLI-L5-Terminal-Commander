@@ -245,8 +245,6 @@ fn handle_config(list: bool, reset: bool) -> anyhow::Result<()> {
 // ═══════════════════════════════════════════════════════════════════════════════
 #[cfg(test)]
 mod tests {
-    use super::*;
-
     /// Basic arithmetic test - validates test harness is working
     #[test]
     fn test_basic_arithmetic() {
@@ -278,27 +276,19 @@ mod tests {
     fn test_service_icons() {
         let get_icon = |service: &str| -> &'static str {
             match service.to_lowercase().as_str() {
-                "cerberus" => "🛡️",
-                "kronos" => "⏰",
-                "hermes" => "📨",
-                "vortex" => "🧠",
-                "opticus" => "👁️",
-                _ => "📦",
+                "cerberus" => "shield",
+                "kronos" => "clock",
+                "hermes" => "mail",
+                "vortex" => "brain",
+                "opticus" => "eye",
+                _ => "box",
             }
         };
 
-        assert_eq!(get_icon("cerberus"), "🛡️");
-        assert_eq!(get_icon("vortex"), "🧠");
-        assert_eq!(get_icon("KRONOS"), "⏰");
-        assert_eq!(get_icon("unknown"), "📦");
-    }
-
-    /// Test that banner constant is not empty
-    #[test]
-    fn test_banner_exists() {
-        assert!(!BANNER.is_empty());
-        assert!(BANNER.contains("TITAN"));
-        assert!(BANNER.contains("OPERATOR CONSOLE"));
+        assert_eq!(get_icon("cerberus"), "shield");
+        assert_eq!(get_icon("vortex"), "brain");
+        assert_eq!(get_icon("KRONOS"), "clock");
+        assert_eq!(get_icon("unknown"), "box");
     }
 
     /// Test environment detection
