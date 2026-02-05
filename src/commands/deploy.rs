@@ -1,5 +1,5 @@
 //! Deploy command implementation
-//! 
+//!
 //! Handles deployment of Titan Protocol services to various
 //! environments (staging, production, edge).
 
@@ -20,13 +20,9 @@ pub async fn execute(service: &str, env: &str, skip_confirm: bool, verbose: bool
     // Validate service name
     let valid_services = ["cerberus", "kronos", "hermes", "vortex", "opticus", "all"];
     let service_lower = service.to_lowercase();
-    
+
     if !valid_services.contains(&service_lower.as_str()) {
-        println!(
-            "  {} Unknown service: {}",
-            "✖".red().bold(),
-            service.red()
-        );
+        println!("  {} Unknown service: {}", "✖".red().bold(), service.red());
         println!();
         println!("  {}", "Available services:".dimmed());
         for svc in valid_services {
@@ -38,15 +34,22 @@ pub async fn execute(service: &str, env: &str, skip_confirm: bool, verbose: bool
 
     // Display deployment info
     let icon = get_service_icon(&service_lower);
-    println!("  {} Deploy {} to {}", "📦".to_string(), 
-             format!("{} {}", icon, service.to_uppercase()).cyan().bold(),
-             env.yellow().bold());
+    println!(
+        "  {} Deploy {} to {}",
+        "📦".to_string(),
+        format!("{} {}", icon, service.to_uppercase()).cyan().bold(),
+        env.yellow().bold()
+    );
     println!();
 
     // Show deployment details
     println!("  {}", "Deployment Configuration:".dimmed());
     println!("  ─────────────────────────────────────");
-    println!("    {} {}", "Service:".dimmed(), service.to_uppercase().cyan());
+    println!(
+        "    {} {}",
+        "Service:".dimmed(),
+        service.to_uppercase().cyan()
+    );
     println!("    {} {}", "Environment:".dimmed(), env.yellow());
     println!("    {} {}", "Strategy:".dimmed(), "Rolling Update");
     println!("    {} {}", "Replicas:".dimmed(), "3");
@@ -110,9 +113,17 @@ pub async fn execute(service: &str, env: &str, skip_confirm: bool, verbose: bool
     if verbose {
         println!();
         println!("  {}", "Deployment Details:".dimmed());
-        println!("    {} {}", "Image:".dimmed(), format!("titan/{}:latest", service_lower));
+        println!(
+            "    {} {}",
+            "Image:".dimmed(),
+            format!("titan/{}:latest", service_lower)
+        );
         println!("    {} {}", "Pods:".dimmed(), "3/3 Running");
-        println!("    {} {}", "Endpoint:".dimmed(), format!("https://{}.{}.titan.io", service_lower, env));
+        println!(
+            "    {} {}",
+            "Endpoint:".dimmed(),
+            format!("https://{}.{}.titan.io", service_lower, env)
+        );
     }
 
     println!();

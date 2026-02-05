@@ -1,5 +1,5 @@
 //! HTTP Client wrapper for TITAN-CLI
-//! 
+//!
 //! Provides a configured reqwest client with:
 //! - Default timeouts
 //! - Custom User-Agent header
@@ -29,7 +29,7 @@ impl TitanClient {
     /// Check the health of an endpoint
     pub async fn check_health(&self, url: &str) -> Result<String, reqwest::Error> {
         let response = self.client.get(url).send().await?;
-        
+
         if response.status().is_success() {
             Ok("healthy".to_string())
         } else {

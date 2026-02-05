@@ -1,5 +1,5 @@
 //! Ask command implementation
-//! 
+//!
 //! Sends queries to the VORTEX AI Engine and displays
 //! streaming or complete responses with beautiful formatting.
 
@@ -105,11 +105,13 @@ ecosystem. Shall I elaborate on any specific finding?",
     } else if query_lower.contains("status") || query_lower.contains("health") {
         "All Titan Protocol subsystems are operating within normal parameters.
 The CERBERUS gateway is processing requests efficiently, and HERMES
-event throughput remains optimal.".to_string()
+event throughput remains optimal."
+            .to_string()
     } else if query_lower.contains("deploy") {
         "To deploy services, use the `titan deploy <service>` command.
 Ensure you have proper credentials configured in your environment.
-Current deployment targets: staging, production, edge.".to_string()
+Current deployment targets: staging, production, edge."
+            .to_string()
     } else {
         format!(
             "{}
@@ -137,7 +139,7 @@ async fn typewriter_print(text: &str) {
         // Flush stdout to ensure immediate display
         use std::io::{self, Write};
         let _ = io::stdout().flush();
-        
+
         // Variable delay for natural feel
         let delay = match ch {
             '.' | '!' | '?' | '\n' => 50,

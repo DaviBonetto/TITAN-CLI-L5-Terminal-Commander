@@ -1,5 +1,5 @@
 //! Status command implementation
-//! 
+//!
 //! Checks the health of all Titan Protocol services and displays
 //! a formatted status table with connection indicators.
 
@@ -52,11 +52,7 @@ const SERVICES: &[Service] = &[
 ];
 
 /// Execute the status command
-pub async fn execute(
-    service_filter: Option<String>,
-    detailed: bool,
-    verbose: bool,
-) -> Result<()> {
+pub async fn execute(service_filter: Option<String>, detailed: bool, verbose: bool) -> Result<()> {
     // Print header
     println!();
     ui::print_header("TITAN PROTOCOL STATUS");
@@ -73,7 +69,7 @@ pub async fn execute(
             .unwrap()
             .tick_chars("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"),
     );
-    pb.enable_steady_tick(Duration::from_millis(80));  
+    pb.enable_steady_tick(Duration::from_millis(80));
     pb.set_message("Scanning services...");
 
     // Check each service
@@ -136,7 +132,11 @@ fn print_status_table(
         "SERVICE".cyan().bold(),
         " ".repeat(10),
         "STATUS".cyan().bold(),
-        if detailed { "       DETAILS".cyan().bold().to_string() } else { "".to_string() }
+        if detailed {
+            "       DETAILS".cyan().bold().to_string()
+        } else {
+            "".to_string()
+        }
     );
     println!("  {}", "─".repeat(60));
 

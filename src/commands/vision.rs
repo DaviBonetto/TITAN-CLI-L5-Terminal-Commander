@@ -1,5 +1,5 @@
 //! Vision command implementation
-//! 
+//!
 //! Connects to the OPTICUS vision stream for real-time
 //! visual data processing and analysis.
 
@@ -18,11 +18,15 @@ pub async fn execute(stream: bool, index: u32, verbose: bool) -> Result<()> {
 
     println!("  {} Connecting to OPTICUS stream...", "👁️".to_string());
     println!("  {} Source index: {}", "📷".to_string(), index);
-    
+
     if stream {
-        println!("  {} Streaming mode: {}", "📡".to_string(), "ENABLED".green());
+        println!(
+            "  {} Streaming mode: {}",
+            "📡".to_string(),
+            "ENABLED".green()
+        );
     }
-    
+
     println!();
 
     // Create connection spinner
@@ -71,7 +75,7 @@ pub async fn execute(stream: bool, index: u32, verbose: bool) -> Result<()> {
         // Simulate streaming output
         println!("  {}", "Live Stream Output:".yellow().bold());
         println!("  ─────────────────────────────────────");
-        
+
         let detections = [
             ("OBJECT", "person", 0.95, "Primary frame"),
             ("MOTION", "walking", 0.87, "Vector analysis"),
@@ -83,7 +87,7 @@ pub async fn execute(stream: bool, index: u32, verbose: bool) -> Result<()> {
         for (category, label, confidence, source) in detections {
             let conf_bar = "█".repeat((confidence * 10.0) as usize);
             let conf_empty = "░".repeat(10 - (confidence * 10.0) as usize);
-            
+
             println!(
                 "    {} [{:.0}%] {}{} {} ({}) ",
                 format!("[{}]", category).cyan(),
@@ -93,7 +97,7 @@ pub async fn execute(stream: bool, index: u32, verbose: bool) -> Result<()> {
                 label.white().bold(),
                 source.dimmed()
             );
-            
+
             sleep(Duration::from_millis(200)).await;
         }
 

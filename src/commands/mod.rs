@@ -1,5 +1,5 @@
 //! Commands module for TITAN-CLI
-//! 
+//!
 //! This module exports all available CLI commands:
 //! - status: Check service health
 //! - ask: Query VORTEX AI

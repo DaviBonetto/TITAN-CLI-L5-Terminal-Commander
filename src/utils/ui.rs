@@ -1,5 +1,5 @@
 //! UI utilities for TITAN-CLI
-//! 
+//!
 //! Provides consistent styling and formatting for terminal output.
 
 use colored::Colorize;
@@ -10,7 +10,12 @@ pub fn print_header(title: &str) {
     let title_len = title.len();
     let padding = (width - title_len - 4) / 2;
 
-    println!("  {}", "╔".cyan().to_string() + &"═".repeat(width - 2).cyan().to_string() + &"╗".cyan().to_string());
+    println!(
+        "  {}",
+        "╔".cyan().to_string()
+            + &"═".repeat(width - 2).cyan().to_string()
+            + &"╗".cyan().to_string()
+    );
     println!(
         "  {} {} {} {}",
         "║".cyan(),
@@ -18,7 +23,12 @@ pub fn print_header(title: &str) {
         title.white().bold(),
         " ".repeat(width - padding - title_len - 4) + &"║".cyan().to_string()
     );
-    println!("  {}", "╚".cyan().to_string() + &"═".repeat(width - 2).cyan().to_string() + &"╝".cyan().to_string());
+    println!(
+        "  {}",
+        "╚".cyan().to_string()
+            + &"═".repeat(width - 2).cyan().to_string()
+            + &"╝".cyan().to_string()
+    );
 }
 
 /// Print a success message
