@@ -16,6 +16,7 @@
 ```
 
 [![Rust](https://img.shields.io/badge/Rust-1.70+-orange?style=for-the-badge&logo=rust)](https://www.rust-lang.org/)
+[![Build](https://img.shields.io/github/actions/workflow/status/DaviBonetto/TITAN-CLI-L5-Terminal-Commander/ci.yml?style=for-the-badge&logo=github&label=CI)](https://github.com/DaviBonetto/TITAN-CLI-L5-Terminal-Commander/actions)
 [![Clap](https://img.shields.io/badge/Clap-v4.4-blue?style=for-the-badge)](https://docs.rs/clap)
 [![Tokio](https://img.shields.io/badge/Tokio-Async-purple?style=for-the-badge)](https://tokio.rs/)
 [![Layer](https://img.shields.io/badge/Layer-L5_Interface-cyan?style=for-the-badge)]()
